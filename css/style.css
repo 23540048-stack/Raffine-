@@ -1,0 +1,131 @@
+/* ====================================================== */
+/* =================== RESET & GLOBAL =================== */
+/* ====================================================== */
+html {
+  font-family: Quicksand, Arial, sans-serif;
+  font-size: 10px;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f8f8f8;
+  color: #000000;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex-grow: 1;
+  padding: 20px;
+}
+/* =================== HEADINGS =================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, Arial, sans-serif;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+
+/* =================== PARAGRAPH & LIST =================== */
+p,
+li,
+dt,
+dd {
+  line-height: 1.5;
+}
+
+ul,
+ol,
+dl {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* =================== LINKS =================== */
+a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #8e6f53;
+  cursor: pointor;
+}
+
+a:active {
+  color: #c8bbb3;
+}
+
+/* =================== BUTTONS =================== */
+button {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background-color: #000000;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #fff; /* nền trắng */
+  color: #000; /* chữ đen */
+  transform: translateY(-2px); /* hiệu ứng nổi nhẹ */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+  background-color: #000000;
+  color: #fff;
+}
+/* =================== FORMS =================== */
+input,
+textarea,
+select {
+  font-family: Roboto, Arial, sans-serif;
+  font-size: inherit;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #8e6f53;
+  box-shadow: 0 0 0 2px rgba(142, 111, 83, 0.3);
+}

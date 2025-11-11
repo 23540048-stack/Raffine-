@@ -1,0 +1,50 @@
+/* ======================================================= */
+/* MAIN CONTENT LAYOUT - SPLIT IMAGES */
+/* ======================================================= */
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 0;
+}
+
+.split-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-grow: 1;
+}
+
+/* Các thuộc tính định dạng cho hình ảnh */
+.left-img,
+.right-img {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cài đặt hình ảnh để chúng lấp đầy không gian */
+.split-images img {
+  width: 100%;
+  height: 100%;
+  /* Đảm bảo hình ảnh che phủ toàn bộ khu vực mà không bị méo */
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Hiệu ứng tương tác (làm ảnh zoom lên khi di chuột) */
+.left-img:hover img,
+.right-img:hover img {
+  transform: scale(1.05); /* Phóng to 5% */
+}
+
+/* Logo ở giữa  */
+main .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}

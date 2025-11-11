@@ -1,0 +1,144 @@
+/* --- 1. Bảng Order --- */
+#order-summary {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* --- 2. THEAD (Tiêu đề) --- */
+#order-summary thead th {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 15px 10px;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* PHÂN BỔ CHIỀU RỘNG 6 CỘT */
+
+/* Cột 1: PRODUCT (Chiếm 45% - sẽ hiển thị ảnh) */
+#order-summary thead th:nth-child(1) {
+  width: 45%;
+  text-align: left;
+  padding-left: 20px;
+}
+/* Cột 2 & 3: TRỐNG (Ẩn tiêu đề) */
+#order-summary thead th:nth-child(2),
+#order-summary thead th:nth-child(3) {
+  display: none;
+}
+/* Cột 4: UNIT PRICE */
+#order-summary thead th:nth-child(4) {
+  width: 15%;
+}
+/* Cột 5: QUANTITY */
+#order-summary thead th:nth-child(5) {
+  width: 15%;
+}
+/* Cột 6: TOTAL */
+#order-summary thead th:nth-child(6) {
+  width: 25%;
+  text-align: right;
+  padding-right: 20px;
+}
+
+/* --- 3. TBODY (Dữ liệu) --- */
+
+#order-summary tbody td {
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* CỘT DỮ LIỆU CẦN ẨN (Tên sản phẩm và Size) */
+/* Cột 2 (Tên sản phẩm) và Cột 3 (Size) phải bị ẩn để cột Ảnh có đủ không gian mở rộng */
+#order-summary tbody td:nth-child(2),
+#order-summary tbody td:nth-child(3) {
+  display: none;
+}
+
+/* CỘT 1 (td:nth-child(1)): Ảnh */
+#order-summary tbody td:nth-child(1) {
+  text-align: left;
+  padding-left: 20px;
+  /* Thiết lập lại padding dọc, sử dụng flex để căn chỉnh */
+  padding-top: 15px;
+  padding-bottom: 15px;
+
+  /* Thiết lập Flexbox để căn chỉnh ảnh và text (nếu có) */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Khoảng cách giữa ảnh và text */
+}
+/* Thiết lập chiều rộng ảnh */
+#order-summary tbody td:nth-child(1) img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+/* Nội dung text (nếu có) */
+#order-summary tbody td:nth-child(1) .product-name,
+#order-summary tbody td:nth-child(1) .product-size {
+  text-transform: none;
+  line-height: 1.4;
+}
+
+/* CỘT 4 (td:nth-child(4)): UNIT PRICE */
+#order-summary tbody td:nth-child(4) {
+  text-align: center;
+}
+
+/* CỘT 5 (td:nth-child(5)): QUANTITY */
+#order-summary tbody td:nth-child(5) {
+  text-align: center;
+}
+
+/* CỘT 6 (td:nth-child(6)): TOTAL */
+#order-summary tbody td:nth-child(6) {
+  text-align: right;
+  padding-right: 20px;
+
+  color: #333;
+}
+/* Phần success order*/
+
+.success-order {
+  /* Đảm bảo nội dung (text, button) được căn giữa theo chiều ngang */
+  text-align: center;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.success-order h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.success-order h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.success-order p {
+  margin-top: 20px;
+}

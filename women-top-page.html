@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Women's Tops: Shirts, T-Shirts & Blouses | Raffine</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/header-footer.css" />
+    <link rel="stylesheet" href="css/women-page.css" />
+  </head>
+  <body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="site-header">
+      <!--Left-side-->
+      <div class="header-left">
+        <!--Nút mở menu-->
+        <button class="menu-toggle" aria-label="Menu">
+          <img src="images/Menu.svg" alt="Menu" width="24" height="24" />
+        </button>
+        <nav class="menu">
+          <ul class="menu-main">
+            <li class="menu-item" data-submenu="men">
+              <span>Men's Fashion</span>
+              <span class="arrow">&rsaquo;</span>
+            </li>
+            <li class="menu-item" data-submenu="women">
+              <span>Women's Fashion</span>
+              <span class="arrow">&rsaquo;</span>
+            </li>
+            <li class="menu-item">
+              <span>Help Center</span>
+              <span class="arrow">&rsaquo;</span>
+            </li>
+            <li class="menu-item">
+              <a href="order-tracking-page.html">Order Tracking</a>
+              <span class="arrow">&rsaquo;</span>
+            </li>
+            <li class="menu-item">About Us</li>
+          </ul>
+
+          <!-- Menu con: Men’s Fashion -->
+          <div class="submenu" id="men">
+            <div class="submenu-grid">
+              <div class="submenu-card">
+                <p>Top</p>
+                <a href="men-top-page.html"
+                  ><img src="images/Top-Men.jpg" alt="Top"
+                /></a>
+              </div>
+              <div class="submenu-card">
+                <p>Bottom</p>
+                <a href="men-bottom-page.html"
+                  ><img src="images/Bottom-Men.jpg" alt="Bottom"
+                /></a>
+              </div>
+              <div class="submenu-card">
+                <p>Jacket</p>
+                <a href="men-jacket-page.html"
+                  ><img src="images/Jacket-Men.jpg" alt="Jacket"
+                /></a>
+              </div>
+            </div>
+            <a href="#" class="see-more">See more</a>
+          </div>
+
+          <!-- Menu con: Women’s Fashion -->
+          <div class="submenu" id="women">
+            <div class="submenu-grid">
+              <div class="submenu-card">
+                <p>Top</p>
+                <a href="women-top-page.html"
+                  ><img src="images/Top-Women.jpg" alt="Top"
+                /></a>
+              </div>
+              <div class="submenu-card">
+                <p>Bottom</p>
+                <a href="women-bottom-page.html"
+                  ><img src="images/Bottom-Women.jpg" alt="Bottom"
+                /></a>
+              </div>
+              <div class="submenu-card">
+                <p>Dress</p>
+                <a href="women-dress-page.html"
+                  ><img src="images/Dress-Women.jpg" alt="Dress"
+                /></a>
+              </div>
+            </div>
+            <a href="#" class="see-more">See more</a>
+          </div>
+        </nav>
+      </div>
+
+      <!--Center-side-->
+      <div class="header-center">
+        <!--Logo-->
+        <h1 class="logo">
+          <a href="index.html" class="logo" aria-label="Raffine">
+            <img src="images/RAFFINE.svg" alt="Raffine" />
+          </a>
+        </h1>
+      </div>
+
+      <!--Right-side-->
+      <div class="header-right">
+        <!--Tìm kiếm-->
+        <div class="search-box">
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Find on Raffine..."
+          />
+          <button class="search-btn">
+            <img src="images/search.svg" alt="Search" width="25" height="25" />
+          </button>
+          <ul class="search-results"></ul>
+        </div>
+        <!--Biểu tượng tài khoản và giỏ hàng-->
+        <nav id="login-cart">
+          <a href="log-in-page.html"
+            ><img src="images/Login.svg" alt="Login"
+          /></a>
+          <a href="cart-page.html"
+            ><img src="images/cart-icon.svg" alt="Cart-icon" />
+            <span class="cart-count">0</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="poster">
+        <img
+          src="images/women-top-page.jpg"
+          alt="Poster of a woman walking beside a building, capturing a stylish urban scene."
+        />
+      </section>
+      <section class="category-slider">
+        <button class="arrow left" aria-label="Previous">&lsaquo;</button>
+        <div class="category-list">
+          <a href="women-top-page.html" class="category-item">Top</a>
+          <a href="women-bottom-page.html" class="category-item">Bottom</a>
+          <a href="women-dress-page.html" class="category-item">Dress</a>
+        </div>
+        <button class="arrow right" aria-label="Next">&rsaquo;</button>
+      </section>
+      <!-- Description -->
+      <section class="category-description">
+        <h2>All Top Items</h2>
+        <p>
+          Elevate your style with our youthful, elegant shirts. Perfect for any
+          occasion, they combine modern design with premium comfort. Redefine
+          chic today!
+        </p>
+      </section>
+      <!-- Filter Section -->
+      <section class="filter-bar">
+        <div class="filter-item">
+          <button class="filter-toggle">
+            Sort <img src="images/down-arrow.svg" alt="down-arrow" />
+          </button>
+          <ul class="filter-dropdown">
+            <li>Newest</li>
+            <li>Price: Low to High</li>
+            <li>Price: High to Low</li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <button class="filter-toggle">
+            Color <img src="images/down-arrow.svg" alt="down-arrow" />
+          </button>
+          <ul class="filter-dropdown">
+            <li>White</li>
+            <li>Black</li>
+            <li>Pink</li>
+            <li>Blue</li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <button class="filter-toggle">
+            Size <img src="images/down-arrow.svg" alt="down-arrow" />
+          </button>
+          <ul class="filter-dropdown">
+            <li>S</li>
+            <li>M</li>
+            <li>L</li>
+            <li>XL</li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <button class="filter-toggle">
+            Sale <img src="images/down-arrow.svg" alt="down-arrow" />
+          </button>
+          <ul class="filter-dropdown">
+            <li>On Sale</li>
+            <li>Regular Price</li>
+          </ul>
+        </div>
+      </section>
+      <!-- Product Grid -->
+      <section class="product-grid">
+        <div class="product-card" data-id="mood4">
+          <img
+            src="images/mood4.jpg"
+            alt="A moody scene capturing soft lighting and calm atmosphere, evoking feelings of serenity and introspection."
+          />
+        </div>
+
+        <div class="product-card" data-id="lazy-top">
+          <img
+            src="images/Bottom-Women.jpg"
+            alt="White sleeveless top with thin straps, elegant and minimalist design."
+          />
+          <p class="product-name">Lazy-top</p>
+          <p class="product-price">40$</p>
+        </div>
+
+        <div class="product-card" data-id="flower-top">
+          <img
+            src="images/flower-top.jpg"
+            alt="Refined elegance in the Flower Top — a sleeveless white piece with a deep, graceful neckline framed by floral detailing."
+          />
+          <p class="product-name">Flower-top</p>
+          <p class="product-price">50$</p>
+        </div>
+
+        <div class="product-card" data-id="swan-top">
+          <img
+            src="images/swan-top.jpg"
+            alt="Chic long-sleeve blouse with a delicate ruffled collar crafted from lustrous satin fabric"
+          />
+          <p class="product-name">Swan-top</p>
+          <p class="product-price">55$</p>
+        </div>
+
+        <div class="product-card" data-id="sunset-top">
+          <img
+            src="images/sunset-top.jpg"
+            alt="Black short off-shoulder top with stylish and modern design."
+          />
+          <p class="product-name">Sunset-top</p>
+          <p class="product-price">40$</p>
+        </div>
+
+        <div class="product-card" data-id="anna-top">
+          <img
+            src="images/anna-top.jpg"
+            alt="Anna Top — a refined sleeveless blouse in soft ivory, featuring a delicate draped neckline that embodies effortless elegance."
+          />
+          <p class="product-name">Anna-top</p>
+          <p class="product-price">45$</p>
+        </div>
+
+        <div class="product-card" data-id="lyly-top">
+          <img
+            src="images/lyly-top.jpg"
+            alt="Long-sleeve loose-fit top in a relaxed style, perfect for casual wear."
+          />
+          <p class="product-name">Lyly-top</p>
+          <p class="product-price">65$</p>
+        </div>
+
+        <div class="product-card" data-id="mood2">
+          <img
+            src="images/mood2.jpg"
+            alt="Black and white portrait of a woman photographed from the front with her face not visible, evoking mystery and elegance."
+          />
+        </div>
+
+        <div class="product-card" data-id="bella-top">
+          <img
+            src="images/cloudline-dress.jpg"
+            alt="Cloudline Dress — an off-shoulder midi dress with a flowing silhouette, evoking airy grace and modern sophistication."
+          />
+          <p class="product-name">Bella-top</p>
+          <p class="product-price">70$</p>
+        </div>
+
+        <div class="product-card" data-id="elly-top">
+          <img
+            src="images/elly-top.jpg"
+            alt="Elegant black short-sleeve top made from soft, premium fabric"
+          />
+          <p class="product-name">Elly-top</p>
+          <p class="product-price">68$</p>
+        </div>
+
+        <div class="product-card" data-id="lisa-top">
+          <img
+            src="images/lisa-top.jpg"
+            alt="White silk shirt with a smooth, luxurious texture and classic design."
+          />
+          <p class="product-name">Lisa-top</p>
+          <p class="product-price">80$</p>
+        </div>
+
+        <div class="product-card" data-id="loli-top-white">
+          <img
+            src="images/loli-top-white.jpg"
+            alt="Loli Top — a charming white sleeveless blouse featuring soft fabric and graceful lines, blending youthful elegance with subtle sophistication."
+          />
+          <p class="product-name">Loli-top</p>
+          <p class="product-price">70$</p>
+        </div>
+
+        <div class="product-card" data-id="loli-top-purple">
+          <img
+            src="images/loli-top-purple.jpg"
+            alt="Loli Top — a charming purple sleeveless blouse featuring soft fabric and graceful lines, blending youthful elegance with subtle sophistication."
+          />
+          <p class="product-name">Loli-top</p>
+          <p class="product-price">70$</p>
+        </div>
+
+        <div class="product-card" data-id="elsa-top">
+          <img
+            src="images/elsa-top.jpg"
+            alt="Timeless sophistication in the Classic White Shirt — crisp lines and modern grace."
+          />
+          <p class="product-name">Elsa-top</p>
+          <p class="product-price">65$</p>
+        </div>
+
+        <div class="product-card" data-id="mood1">
+          <img
+            src="images/mood1.jpg"
+            alt="Elegant, dreamy atmosphere with a pleated purple taffeta gown under subtle lighting."
+          />
+        </div>
+      </section>
+
+      <!-- Pagination -->
+      <nav
+        class="pagination"
+        id="pagination"
+        role="navigation"
+        aria-label="Pagination"
+      ></nav>
+      <div
+        id="page-indicator"
+        style="
+          text-align: center;
+          margin-top: 8px;
+          font-size: 14px;
+          color: #555;
+        "
+      ></div>
+    </main>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- Follow us -->
+        <div class="footer-social">
+          <h4><strong>Follow us:</strong></h4>
+          <div class="social-icons">
+            <a href="https://twitter.com" aria-label="Twitter">
+              <img
+                src="images/Twitter.svg"
+                alt="Twitter"
+                width="24"
+                height="24"
+              />
+            </a>
+            <a href="https://instagram.com" aria-label="Instagram">
+              <img
+                src="images/INS.svg"
+                alt="Instagram"
+                width="24"
+                height="24"
+              />
+            </a>
+            <a href="https://facebook.com" aria-label="Facebook">
+              <img src="images/FB.svg" alt="Facebook" width="24" height="24" />
+            </a>
+          </div>
+        </div>
+        <!-- Text items -->
+        <div class="footer-text">
+          <div class="footer-text1">
+            <h4>FAQs</h4>
+            <p>Privacy Policy</p>
+            <p>Customer Service</p>
+          </div>
+
+          <div class="footer-text2">
+            <h4>Returns & exchanges</h4>
+            <p>Terms & Condition</p>
+            <p>Sitemap</p>
+          </div>
+          <div class="footer-text3">
+            <h4>Language</h4>
+
+            <img
+              src="images/Language Icon.svg"
+              alt="Language icon"
+              width="24"
+              height="24"
+              class="language-icon"
+            />
+
+            <div class="language-selector-wrapper">
+              <button
+                class="language-toggle current-lang-button"
+                aria-expanded="false"
+                aria-controls="language-menu"
+              >
+                <span class="current-lang" data-current-lang="ENG">ENG</span>
+              </button>
+
+              <button
+                class="language-toggle dropdown-arrow-button"
+                aria-expanded="false"
+                aria-controls="language-menu"
+              >
+                <span class="dropdown-arrow">></span>
+              </button>
+
+              <!-- Menu lựa chọn ngôn ngữ -->
+              <ul class="language-menu" id="language-menu">
+                <li data-lang="VN">VN</li>
+                <li data-lang="ENG" class="active">ENG</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/women-page.js"></script>
+  </body>
+</html>

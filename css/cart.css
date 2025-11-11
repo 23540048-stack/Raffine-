@@ -1,0 +1,262 @@
+/* ==================== CART PAGE MAIN ==================== */
+main.cart-container {
+  width: 100%;
+  margin: 0;
+  padding: 60px 60px;
+}
+
+/* ==================== CART TABLE ==================== */
+
+.cart-items table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+
+/* --- 2. THEAD (Tiêu đề) --- */
+.cart-items thead th {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000000;
+  padding: 20px 0 10px 0;
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+  white-space: nowrap;
+  width: 14.28%;
+}
+
+/* --- 3. TBODY (Dữ liệu) --- */
+.cart-row td {
+  padding: 25px 5px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  font-size: 0.9rem;
+  width: 14.28%; /* Chia đều 100% / 7 */
+}
+
+/* CỘT 1: Ảnh (PRODUCT) */
+.cart-row td:nth-child(1) {
+  text-align: left;
+}
+.cart-row img {
+  display: block;
+  width: 100px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* CỘT 2: Tên sản phẩm */
+.cart-row td:nth-child(2) {
+  text-align: left;
+  text-transform: none;
+  font-weight: 600;
+}
+
+/* CỘT 3: Kích thước */
+.cart-row td:nth-child(3) {
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: none;
+}
+
+/* CỘT 4, 5, 6: Giá, Số lượng, Tổng tiền (Căn giữa nội dung) */
+.cart-row td:nth-child(4), /* UNIT PRICE */
+.cart-row td:nth-child(5), /* QUANTITY */
+.cart-row td:nth-child(6) {
+  /* TOTAL */
+  text-align: center;
+  font-weight: 600;
+}
+
+/* CỘT 7: Nút xóa */
+.cart-row td:nth-child(7) {
+  text-align: center;
+}
+.remove-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* --- QUANTITY CONTROL (Cột 5) --- */
+.cart-row td:nth-child(5) .quantity-control {
+  margin: 0 auto;
+}
+.quantity-control {
+  display: inline-flex;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 32px;
+}
+.quantity-control button {
+  width: 20px;
+  font-size: 1rem;
+}
+
+/* ---------- SEPARATOR ---------- */
+.separator {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 40px 0;
+}
+
+/* ---------- COUPON & UPDATE ---------- */
+.cart-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupon-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.apply-coupon-btn {
+  padding: 5px 20px;
+  height: 30px;
+}
+
+/* ---------- CART SUMMARY ---------- */
+cart-summary {
+  max-width: 400px;
+  margin-right: auto;
+}
+
+/* --- 2. SUBTOTAL (2 Cột Flexbox) --- */
+.summary-row.subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 300px;
+}
+
+.summary-row .label {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* --- 3. SHIPPING (2 Cột GRID) --- */
+.summary-section.shipping-block {
+  display: grid;
+  /* CHIA CỘT: 35% cho Label (SHIPPING), 65% cho Inputs */
+  grid-template-columns: 35% 65%;
+  gap: 15px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  align-items: start; /* Căn lề trên cho Label */
+  width: 690px;
+}
+
+.shipping-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0; /* Đảm bảo không có margin thừa làm lệch */
+  padding-top: 10px; /* Căn chỉnh label ngang với input đầu tiên */
+}
+
+.shipping-inputs {
+  /* Khối chứa inputs (Cột 2) */
+  display: block;
+}
+
+/* Các input con của khối inputs */
+.shipping-inputs input {
+  font-family: Roboto, Arial, sans-serif;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+/* ---------- PAYMENT ---------- */
+.summary-section.payment-block {
+  display: grid;
+  /* CHIA CỘT: 35% cho Label, 65% cho Options */
+  grid-template-columns: 35% 65%;
+  gap: 15px;
+  margin-top: 40px; /* Khoảng cách từ đường kẻ ngang */
+  margin-bottom: 20px;
+  align-items: start; /* Căn lề trên */
+  width: 690px;
+}
+
+/* --- Cột 1: Label (PAYMENT) --- */
+.payment-label {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+  padding-top: 10px; /* Căn chỉnh ngang với các nút tùy chọn */
+}
+
+/* --- Cột 2: Options (MOMO, CARD, COD) --- */
+.payment-options {
+  display: flex; /* Giữ nguyên flex để các nút nằm ngang */
+  gap: 10px;
+  /* Đảm bảo nó chiếm toàn bộ chiều rộng cột 2 (65%) */
+  width: 100%;
+}
+
+.payment-option {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid #e0e0e0; /* Viền nhẹ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ---------- CART BUTTONS ---------- */
+.cart-buttons {
+  max-width: 400px;
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+}
+
+.black-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex: 1;
+}
+
+.outline-btn {
+  background-color: #fff;
+  color: #000;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex: 1;
+  border: 1px solid #e0e0e0; /* Viền nhẹ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  transition: all 0.2s ease-in-out;
+}
+
+.black-btn:hover {
+  background-color: #ffffff;
+  color: #000;
+  border: 1px solid #e0e0e0; /* Viền nhẹ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* Đổ bóng nhẹ */
+  transition: all 0.2s ease-in-out; /* Chuyển động mượt */
+}
+.outline-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}

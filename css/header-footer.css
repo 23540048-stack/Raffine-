@@ -1,0 +1,430 @@
+/* ==================== HEADER ==================== */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+/* Nhóm trái: menu */
+.header-left {
+  display: flex;
+  align-items: center;
+  width: 300px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Menu chính */
+.menu {
+  position: relative;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  width: 280px;
+  display: none;
+  flex-direction: column;
+  padding: 0;
+}
+
+.menu.active {
+  display: flex;
+}
+
+.menu-main {
+  list-style: none;
+}
+
+.menu-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.arrow {
+  margin-left: 18px;
+}
+
+.menu-item:hover {
+  color: #8e6f53;
+}
+/* Xóa bỏ hiển thị dạng link */
+.menu-item a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Menu con */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #fff;
+  padding: 15px;
+  border-left: 2px solid #8e6f53;
+  box-sizing: border-box;
+}
+
+.submenu.active {
+  display: flex;
+}
+
+.submenu-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.submenu-card {
+  text-align: center;
+}
+
+.submenu-card img {
+  width: 80px;
+  height: 120px;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+}
+
+.submenu-card img:hover {
+  transform: scale(1.05);
+}
+
+.see-more {
+  text-align: center;
+  color: #000;
+  text-decoration: underline;
+}
+/* Nhóm giữa: logo */
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Chiếm hết khoảng trống giữa left và right */
+}
+
+.logo img {
+  width: 140px;
+  height: auto;
+  /* Các thuộc tính cần thiết cho hiệu ứng */
+  opacity: 0;
+  transform: translateY(400px); /* Vị trí bắt đầu  */
+  /* Áp dụng Animation */
+  animation: flyUp 0.5s ease-out forwards;
+}
+
+.logo {
+  margin: 0 auto;
+}
+/* Định nghĩa KEYFRAMES */
+@keyframes flyUp {
+  0% {
+    /* Trạng thái bắt đầu: Dịch chuyển xuống và ẩn */
+    transform: translateY(400px);
+    opacity: 0;
+  }
+  100% {
+    /* Trạng thái kết thúc: Quay về vị trí 0 và hiện rõ */
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* Nhóm phải */
+.header-right {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  justify-content: flex-end;
+}
+/* Icon tìm kiếm, login, cart */
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 25px;
+  transition: width 0.3s ease;
+}
+
+/* Input */
+.search-input {
+  position: absolute; /* overlay input lên header */
+  right: 30px; /* cách nút search */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  padding: 5px 10px;
+  border: none;
+  border-bottom: 1px solid #000;
+  background: none;
+  opacity: 0;
+  transition: width 0.7s ease, opacity 0.7s ease;
+  outline: none;
+}
+
+/* Nút search vẫn trong flow header, bên phải logo */
+.search-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover input mở ra */
+.search-box:hover .search-input {
+  width: 300px; /* input trượt ra mà không đẩy logo */
+  opacity: 1;
+}
+/* Kết quả search */
+.search-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  list-style: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+  display: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.search-results li {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  cursor: pointer;
+  gap: 10px;
+  transition: background 0.2s ease;
+}
+
+.search-results li:hover {
+  background-color: #f0f0f0;
+}
+
+.search-results img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.search-results .item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-results .item-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.search-results .item-price {
+  font-size: 13px;
+  color: #888;
+}
+#login-cart a {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+#login-cart {
+  display: flex;
+  align-items: center;
+}
+
+#login-cart img {
+  width: 22px;
+  height: 22px;
+}
+
+.cart-count {
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 5px;
+  margin-left: 4px;
+}
+
+/* ==================== FOOTER ==================== */
+.site-footer {
+  font-family: "Open Sans", Helvetica, sans-serif;
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-top: 1px solid #ddd;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Social bên trái */
+.footer-social {
+  display: flex;
+  flex-direction: column; /* p trên, icon dưới */
+  gap: 8px; /* khoảng cách hợp lý giữa p và icon */
+}
+
+.footer-social h4 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Container icon nằm cùng 1 hàng */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-icons a img {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Phóng to nhẹ khi hover */
+.social-icons a:hover img {
+  transform: scale(1.2);
+}
+
+/* Chuyển màu theo thương hiệu bằng filter */
+.social-icons a[href*="twitter"]:hover img {
+  filter: invert(50%) sepia(90%) saturate(500%) hue-rotate(180deg)
+    brightness(1.2);
+}
+
+.social-icons a[href*="instagram"]:hover img {
+  filter: invert(41%) sepia(70%) saturate(500%) hue-rotate(310deg)
+    brightness(1.1);
+}
+
+.social-icons a[href*="facebook"]:hover img {
+  filter: invert(27%) sepia(96%) saturate(749%) hue-rotate(205deg)
+    brightness(0.95);
+}
+/* Text bên phải */
+.footer-text {
+  display: flex;
+  gap: 60px;
+}
+
+/* Kiểu chữ chung cho tiêu đề */
+.footer-text h4 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-text p {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* 1. Bố cục chung: Đặt các phần tử bên dưới H4 ngang hàng */
+.footer-text3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* Đảm bảo H4 chiếm hàng đầu tiên */
+.footer-text3 h4 {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/* Icon quả địa cầu */
+.footer-text3 .language-icon {
+  line-height: 0;
+}
+
+/* Wrapper để định vị menu */
+.language-selector-wrapper {
+  position: relative;
+  display: flex; /* Căn chỉnh nút và dấu > */
+  align-items: center;
+  margin-left: 5px;
+}
+
+/* 2. Xóa viền/nền và Đồng bộ hóa kiểu chữ cho nút */
+.language-toggle {
+  border: none;
+  background: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: #000000;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: normal;
+  font-weight: normal;
+}
+.language-toggle:hover {
+  color: #8e6f53;
+}
+/* 3. Kiểu dáng cho Menu xổ ra và In đậm */
+.language-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 150%;
+  left: 0;
+  border: 1px solid #000;
+  background-color: white;
+  z-index: 100;
+  display: none;
+  min-width: 60px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.language-menu.show {
+  display: block;
+}
+
+.language-menu li {
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #333;
+  font-size: 1rem;
+}
+
+.language-menu li:hover {
+  background-color: #eee;
+}
+
+.language-menu li.active {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
