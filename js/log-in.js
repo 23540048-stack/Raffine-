@@ -17,11 +17,27 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   // Chuyển sang trang home
   window.location.href = "index.html";
 });
-/* Nhấp vào biểu tượng con mắt sẽ hiện/ẩn password*/
+/* Nhấp vào biểu tượng con mắt sẽ hiện/ẩn password và thay đổi icon */
 const togglePassword = document.getElementById("toggle-password");
 const passwordInput = document.getElementById("password");
 
+// 1. Lấy phần tử icon (ví dụ: thẻ <i> bên trong nút)
+// Giả sử HTML của bạn là: <button id="toggle-password"><i id="eye-icon" class="fa-solid fa-eye"></i></button>
+const eyeIcon = document.getElementById("eye-icon");
+
 togglePassword.addEventListener("click", () => {
+  // Thay đổi loại input (password <-> text)
   const type = passwordInput.type === "password" ? "text" : "password";
   passwordInput.type = type;
+
+  // 2. Thay đổi class của icon dựa trên trạng thái hiện tại
+  if (type === "text") {
+    // Nếu password đang HIỆN (text), đổi icon thành gạch chéo (slash)
+    eyeIcon.classList.remove("fa-eye");
+    eyeIcon.classList.add("fa-eye-slash");
+  } else {
+    // Nếu password đang ẨN (password), đổi icon thành con mắt mở (eye)
+    eyeIcon.classList.remove("fa-eye-slash");
+    eyeIcon.classList.add("fa-eye");
+  }
 });
