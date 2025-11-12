@@ -60,10 +60,12 @@ main {
   right: 10px;
   transform: translateY(-50%);
   background: none;
+  cursor: pointer;
+  z-index: 10;
   border: none;
   padding: 0;
   color: #000000;
-  size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .options {
