@@ -21,8 +21,8 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
 const togglePassword = document.getElementById("toggle-password");
 const passwordInput = document.getElementById("password");
 
-// 1. Lấy phần tử icon (ví dụ: thẻ <i> bên trong nút)
-// Giả sử HTML của bạn là: <button id="toggle-password"><i id="eye-icon" class="fa-solid fa-eye"></i></button>
+// 1. Lấy phần tử icon
+
 const eyeIcon = document.getElementById("eye-icon");
 
 togglePassword.addEventListener("click", () => {
