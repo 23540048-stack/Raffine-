@@ -73,6 +73,7 @@ main {
   color: #000000;
   font-family: "Font Awesome 6 Free" !important;
   font-weight: 900 !important;
+  display: inline-block !important;
 }
 .options {
   text-align: left;
