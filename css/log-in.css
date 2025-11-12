@@ -68,6 +68,12 @@ main {
   font-size: 1.8rem;
 }
 
+.eye-btn i {
+  font-size: 1.8rem;
+  color: #000000;
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+}
 .options {
   text-align: left;
   margin-bottom: 20px;
