@@ -68,8 +68,24 @@ main {
   transform: translateY(-50%);
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
+  color: #000;
+  transition: none;
+}
+
+.eye-btn i {
+  color: inherit;
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  display: inline-block;
+}
+
+/* Không cho hover nổi, không đổi màu, không lệch */
+.eye-btn:hover {
+  background: none;
+  color: #000;
+  transform: translateY(-50%);
+  box-shadow: none;
 }
 
 .password-note {
