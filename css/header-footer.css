@@ -428,3 +428,182 @@
   font-weight: bold;
   background-color: #f0f0f0;
 }
+
+/* ======================================================= */
+/* RESPONSIVE STYLES FOR TABLET & MOBILE (Max-Width) */
+/* ======================================================= */
+
+/* Dưới 1024px (ví dụ: máy tính bảng ngang, laptop nhỏ) */
+@media (max-width: 1024px) {
+  /* Header */
+  .header-left,
+  .header-right {
+    width: 250px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 30px 40px;
+  }
+
+  .footer-text {
+    gap: 40px;
+  }
+
+  .footer-text h4 {
+    font-size: 1.3rem;
+  }
+
+  .footer-text p {
+    font-size: 1rem;
+  }
+}
+
+/* Dưới 768px (Ví dụ: Máy tính bảng dọc và Hầu hết các thiết bị di động lớn) */
+@media (max-width: 768px) {
+  /* ==================== HEADER ==================== */
+  .site-header {
+    padding: 10px 15px;
+  }
+
+  /* 1. Header Left (Menu) */
+  .header-left {
+    width: auto;
+  }
+
+  .menu-toggle {
+    padding: 8px;
+  }
+
+  /* Menu cố định khi mở */
+  .menu {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 70%;
+    height: calc(100vh - 60px);
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Ẩn Submenu và Arrow trên mobile */
+  .submenu {
+    display: none !important;
+  }
+
+  .arrow {
+    display: none;
+  }
+
+  /* 2. Header Center (Logo) */
+  .logo img {
+    width: 120px;
+  }
+
+  /* 3. Header Right (Search, Login, Cart) */
+  .header-right {
+    width: auto;
+  }
+
+  /* Thu gọn thanh Tìm kiếm */
+  .search-box {
+    width: 36px;
+  }
+
+  .search-box:hover .search-input {
+    width: 200px;
+    right: 50px;
+  }
+
+  #login-cart a {
+    margin-left: 15px;
+  }
+
+  /* ==================== MAIN CONTENT (HOME) ==================== */
+
+  /* Chia đôi hình ảnh dọc theo cột */
+  .split-images {
+    grid-template-columns: 1fr; /* Chỉ 1 cột */
+    grid-template-rows: 1fr 1fr; /* Chia thành 2 hàng */
+    height: 100vh;
+  }
+
+  /* Ẩn logo main trên mobile */
+  main .logo {
+    display: none;
+  }
+
+  /* ==================== FOOTER ==================== */
+  .site-footer {
+    padding: 30px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column; /* Xếp Social và Text thành 2 khối dọc */
+    gap: 30px;
+  }
+
+  /* 1. Phần Social (Lên trên cùng) */
+  .footer-social {
+    width: 100%;
+    order: 1; /* Đặt lên trên */
+    text-align: left;
+  }
+
+  /* 2. Phần Text (Nằm dưới) */
+  .footer-text {
+    width: 100%;
+    order: 2; /* Đặt dưới Social */
+    display: flex; /* Bật lại Flexbox */
+    flex-wrap: wrap; /* Cho phép các mục con tự xuống hàng */
+    justify-content: space-between; /* ĐÃ CẬP NHẬT: Căn đều 3 cột trên một hàng */
+    gap: 20px;
+  }
+
+  /* Cố gắng giữ 3 cột ngang hàng trên kích thước tablet */
+  .footer-text1,
+  .footer-text2,
+  .footer-text3 {
+    width: calc(33% - 15px); /* Đảm bảo 3 cột và khoảng cách lề */
+    min-width: 180px; /* Ngăn không cho chúng quá nhỏ */
+  }
+
+  .footer-text h4 {
+    margin-bottom: 5px;
+  }
+}
+
+/* Dưới 480px (Điện thoại di động nhỏ) */
+@media (max-width: 480px) {
+  /* ==================== HEADER (Điều chỉnh nhỏ cho điện thoại) ==================== */
+  .site-header {
+    padding: 8px 10px; /* Giảm padding */
+  }
+
+  .logo img {
+    width: 100px; /* Giảm kích thước logo thêm */
+  }
+
+  .menu {
+    width: 80%; /* Menu chiếm nhiều không gian hơn 70% */
+  }
+
+  /* ==================== FOOTER ==================== */
+  .site-footer {
+    padding: 20px 15px;
+  }
+
+  /* ĐIỀU CHỈNH: Cố gắng giữ 3 mục ngang hàng, căn đều, cho phép co lại */
+  .footer-text {
+    gap: 10px;
+    justify-content: space-between;
+  }
+
+  .footer-text1,
+  .footer-text2,
+  .footer-text3 {
+    width: calc(33% - 10px);
+    min-width: 100px;
+  }
+}
