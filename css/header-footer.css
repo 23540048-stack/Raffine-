@@ -480,20 +480,35 @@
     position: fixed;
     left: 0;
     top: 60px;
-    width: 70%;
+    width: 60%;
     height: calc(100vh - 60px);
     z-index: 1000;
     overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   }
 
-  /* Ẩn Submenu và Arrow trên mobile */
   .submenu {
-    display: none !important;
+    /* Bỏ định vị tuyệt đối để nó nằm trong dòng chảy của menu cha */
+    position: static;
+    /* Vị trí ban đầu là ẩn */
+    display: none;
+    /* Reset left/top */
+    left: auto;
+    top: auto;
+    /* Điều chỉnh kiểu dáng cho phù hợp */
+    padding: 10px 15px;
+    width: 100%;
+    border-left: none; /* Xóa border-left */
+    background-color: #f8f8f8; /* Màu nền khác để phân biệt */
+  }
+
+  .submenu.active {
+    display: flex;
+    flex-direction: column;
   }
 
   .arrow {
-    display: none;
+    display: block;
   }
 
   /* 2. Header Center (Logo) */
@@ -555,9 +570,9 @@
   .footer-text {
     width: 100%;
     order: 2; /* Đặt dưới Social */
-    display: flex; /* Bật lại Flexbox */
+    display: flex;
     flex-wrap: wrap; /* Cho phép các mục con tự xuống hàng */
-    justify-content: space-between; /* ĐÃ CẬP NHẬT: Căn đều 3 cột trên một hàng */
+    justify-content: space-between;
     gap: 20px;
   }
 
@@ -586,7 +601,7 @@
   }
 
   .menu {
-    width: 80%; /* Menu chiếm nhiều không gian hơn 70% */
+    width: 80%;
   }
 
   /* ==================== FOOTER ==================== */
