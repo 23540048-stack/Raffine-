@@ -229,3 +229,15 @@ main {
   pointer-events: none; /* Không thể click */
   opacity: 0.5;
 }
+
+#page-indicator {
+  /* 1. Căn giữa và tạo khoảng cách */
+  text-align: center;
+  margin-top: 40px; /* Cách xa danh sách sản phẩm bên trên */
+  margin-bottom: 40px; /* Cách xa footer bên dưới */
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}

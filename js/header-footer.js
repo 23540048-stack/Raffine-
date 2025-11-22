@@ -29,28 +29,16 @@
     });
   });
 
-  const productsData = {
-    // ... (Products Data)
-    "lazy-top": {
-      id: "lazy-top",
-      name: "Lazy-top",
-      price: 40.0,
-      images: ["images/lazy-top.jpg"],
-    },
-    // ... (Các sản phẩm khác)
-  };
-
   /* Lọc sản phẩm */
   function filterSearch(query) {
     if (!query) return [];
-    return Object.values(productsData).filter((p) =>
+    return Object.values(products).filter((p) =>
       p.name.toLowerCase().includes(query.toLowerCase())
     );
   }
 
   /* Hiển thị kết quả search */
   function showResults(results) {
-    // ... (Logic hiển thị kết quả)
     searchResults.innerHTML = "";
     if (results.length === 0) {
       searchResults.style.display = "none";
