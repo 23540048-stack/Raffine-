@@ -1,5 +1,3 @@
-/* ==================== CART.JS ==================== */
-
 /* ----------------- CART FUNCTIONS ----------------- */
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
@@ -82,7 +80,7 @@ function renderCart() {
         <img src="${product.images[0]}" alt="${product.name}" width="150">
         
       </td>
-      <td>${product.name}</>
+      <td>${product.name}</td>
       <td>Size ${item.size}</td>
       <td>$${product.price.toFixed(2)}</td>
       <td>

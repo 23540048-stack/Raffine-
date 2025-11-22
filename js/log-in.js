@@ -4,7 +4,7 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  // Giả lập kiểm tra — ở đây bạn có thể thêm điều kiện thật nếu có backend
+  // Giả lập kiểm tra
   if (username === "" || password === "") {
     alert("Please fill in both username and password.");
     return;

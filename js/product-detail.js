@@ -75,7 +75,7 @@ function loadProduct(id) {
 
   // ---------- Thumbnails ----------
   const thumbContainer = document.querySelector(".thumbnail-list");
-  thumbContainer.innerHTML = "";
+  thumbContainer.innerHTML = ""; // xóa ảnh cũ
   product.images.forEach((src, i) => {
     const img = document.createElement("img");
     img.src = src;
@@ -198,7 +198,7 @@ document.querySelector(".add-to-cart").addEventListener("click", () => {
   // 4. Gọi hàm thêm vào giỏ hàng
   addToCart(productId, selectedSize, defaultQuantity);
 
-  // 5. Cập nhật số đếm trên biểu tượng giỏ hàng (nếu có)
+  // 5. Cập nhật số đếm trên biểu tượng giỏ hàng
   updateCartCount();
 });
 /* ==================== RELATED PRODUCT CLICK ==================== */

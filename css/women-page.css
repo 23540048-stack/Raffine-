@@ -24,15 +24,11 @@ main {
 /* Thanh Category Slider (Top, Bottom, Dress) nằm chính giữa trên ảnh */
 .category-slider {
   position: absolute;
-
   left: 50%;
   transform: translateX(-50%);
-
   display: flex;
   align-items: center;
-
   padding: 10px 15px;
-
   /* Thiết lập chiều rộng tối đa hoặc cố định */
   max-width: 80%;
   z-index: 10;
@@ -45,7 +41,7 @@ main {
 }
 
 .category-item {
-  font-size: 1.6rem; /* 16px */
+  font-size: 1.6rem;
   color: #333;
   font-weight: 500;
   white-space: nowrap;
@@ -150,10 +146,8 @@ main {
 
 .product-grid {
   display: grid;
-  /* Thiết lập lưới 4 cột với khoảng cách 20px */
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
-
   /* Căn giữa lưới trong trang */
   max-width: 1200px;
   margin: 0 auto;

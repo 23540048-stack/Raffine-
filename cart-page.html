@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Your Shopping Cart | Raffine</title>
+    <meta
+      name="description"
+      content="Xem và quản lý giỏ hàng Raffine của bạn. Kiểm tra sản phẩm đã chọn, số lượng và tổng giá trước khi tiến hành thanh toán."
+    />
     <link rel="stylesheet" href="css/header-footer.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/cart.css" />
@@ -127,6 +131,9 @@
         </nav>
       </div>
     </header>
+
+    <!-- ==================== MAIN ==================== -->
+
     <main class="cart-container">
       <section class="cart-items">
         <table>
@@ -159,15 +166,13 @@
       <section class="cart-summary">
         <h3>CART TOTAL</h3>
 
-        <!-- 1. SUBTOTAL (Cấu trúc 2 cột đã có sẵn) -->
+        <!-- 1. SUBTOTAL -->
         <div class="summary-row subtotal">
           <span class="label">SUBTOTAL</span>
           <span class="value" id="cart-subtotal">0$</span>
         </div>
 
-        <!-- 2. SHIPPING (Cấu trúc 2 cột cần chỉnh sửa) -->
-        <!-- ĐỔI: Khối .shipping-details chỉ chứa INPUTS, cần khối cha để sắp xếp label và input -->
-
+        <!-- 2. SHIPPING  -->
         <div class="summary-section shipping-block">
           <!-- Cột 1: Label -->
           <span class="shipping-label">SHIPPING</span>

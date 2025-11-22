@@ -59,14 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
+// Phân trang sản phẩm, lấy tất cả các sản phẩm, xác định số sản phẩm/trang và tổng số trang
 document.addEventListener("DOMContentLoaded", () => {
   const productsContainer = document.querySelector(".product-grid");
   const paginationNav = document.getElementById("pagination");
   const pageIndicator = document.getElementById("page-indicator");
 
-  // Giả định:
-  const productsPerPage = 9;
+  const productsPerPage = 9; //Ví dụ 1 trang có 9 sản phẩm
   const allProducts = Array.from(
     productsContainer.querySelectorAll(".product-card")
   );
@@ -88,12 +87,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePageIndicator();
   }
 
-  // --- 2. Hàm Tạo và Cập nhật Nút Phân trang (ĐÃ SỬA) ---
+  // --- 2. Hàm Tạo và Cập nhật Nút Phân trang ---
   function updatePaginationButtons() {
     paginationNav.innerHTML = ""; // Xóa các nút cũ
 
     // Nút Previous (Sử dụng '<')
-    const prevButton = createPaginationButton("<", currentPage > 1); // Đã đổi "Previous" thành '<'
+    const prevButton = createPaginationButton("<", currentPage > 1);
     prevButton.addEventListener("click", () => {
       if (currentPage > 1) {
         displayProducts(currentPage - 1);
@@ -112,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Nút Next (Sử dụng '>')
-    const nextButton = createPaginationButton(">", currentPage < totalPages); // Đã đổi "Next" thành '>'
+    const nextButton = createPaginationButton(">", currentPage < totalPages);
     nextButton.addEventListener("click", () => {
       if (currentPage < totalPages) {
         displayProducts(currentPage + 1);
@@ -121,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     paginationNav.appendChild(nextButton);
   }
 
-  // --- 3. Hàm Tạo nút HTML (Không thay đổi) ---
+  // --- 3. Hàm Tạo nút HTML ---
   function createPaginationButton(text, isClickable) {
     const button = document.createElement("a");
     button.href = "#";
@@ -135,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return button;
   }
 
-  // --- 4. Cập nhật chỉ số trang (Không thay đổi) ---
+  // --- 4. Cập nhật chỉ số trang ---
   function updatePageIndicator() {
     if (totalPages > 0) {
       pageIndicator.textContent = `Page ${currentPage} of ${totalPages}`;
@@ -144,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- 5. Khởi tạo Phân trang (Không thay đổi) ---
+  // --- 5. Khởi tạo Phân trang ---
   if (totalProducts > productsPerPage) {
     updatePaginationButtons();
     displayProducts(1); // Hiển thị trang đầu tiên khi tải trang
