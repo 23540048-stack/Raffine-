@@ -55,9 +55,9 @@
         </div>
       `;
 
-      /* Khi click → chuyển tới product-detail.html?id=<id> */
+      /* Khi click → chuyển tới product-detail-page.html?id=<id> */
       li.addEventListener("click", () => {
-        window.location.href = `product-detail.html?id=${p.id}`;
+        window.location.href = `product-detail-page.html?id=${p.id}`;
       });
 
       searchResults.appendChild(li);
