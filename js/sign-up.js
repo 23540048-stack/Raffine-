@@ -2,18 +2,19 @@
 document.getElementById("signup-form").addEventListener("submit", function (e) {
   e.preventDefault(); // ngăn reload
 
-  const username = document.getElementById("new-username").value.trim();
+  const username = document.getElementById("new-username").value.trim(); // Lấy giá trị new-username bỏ khoảng trắng thừa
   const password = document.getElementById("new-password").value.trim();
 
   if (username === "" || password === "") {
+    // Kiểm tra nếu bỏ trống thì thông báo
     alert("Please fill in all fields");
     return;
   }
 
-  localStorage.setItem("isLoggedIn", "true");
-  localStorage.setItem("username", username);
+  localStorage.setItem("isLoggedIn", "true"); // Lưu trạng thái đăng nhập
+  localStorage.setItem("username", username); // Lưu username
 
-  window.location.href = "index.html";
+  window.location.href = "index.html"; // Trở về trang chủ
 });
 /* Nhấp vào biểu tượng con mắt sẽ hiện/ẩn password và thay đổi icon */
 const togglePassword = document.getElementById("toggle-password");

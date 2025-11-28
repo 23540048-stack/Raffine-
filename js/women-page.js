@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const filterItems = document.querySelectorAll(".filter-item");
 
   filterItems.forEach((item) => {
-    const toggleButton = item.querySelector(".filter-toggle");
-    const dropdown = item.querySelector(".filter-dropdown");
+    const toggleButton = item.querySelector(".filter-toggle"); // Lấy nút bấm (Sort / Color / Size / Sale)
+    const dropdown = item.querySelector(".filter-dropdown"); // Lấy menu dropdown tương ứng
 
     if (toggleButton && dropdown) {
       // === A. Xử lý sự kiện mở/đóng dropdown ===
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       toggleButton.addEventListener("click", (e) => {
         e.stopPropagation(); // Ngăn sự kiện click lan ra ngoài (lên document)
 
-        const isVisible = dropdown.style.display === "block";
+        const isVisible = dropdown.style.display === "block"; // Kiểm tra dropdown hiện tại đang mở hay đóng
 
         // Đóng tất cả các dropdown khác trước khi mở cái mới
         document.querySelectorAll(".filter-dropdown").forEach((d) => {
@@ -61,24 +61,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // Phân trang sản phẩm, lấy tất cả các sản phẩm, xác định số sản phẩm/trang và tổng số trang
 document.addEventListener("DOMContentLoaded", () => {
-  const productsContainer = document.querySelector(".product-grid");
-  const paginationNav = document.getElementById("pagination");
-  const pageIndicator = document.getElementById("page-indicator");
+  const productsContainer = document.querySelector(".product-grid"); // Lấy container chứa tất cả product cards
+  const paginationNav = document.getElementById("pagination"); // Lấy navigation phân trang (nút PREV / NEXT)
+  const pageIndicator = document.getElementById("page-indicator"); // Lấy thẻ hiển thị "Page X of Y"
 
   const productsPerPage = 9; //Ví dụ 1 trang có 9 sản phẩm
+  // Lấy tất cả sản phẩm dưới dạng array
   const allProducts = Array.from(
     productsContainer.querySelectorAll(".product-card")
   );
   const totalProducts = allProducts.length;
-  const totalPages = Math.ceil(totalProducts / productsPerPage);
+  const totalPages = Math.ceil(totalProducts / productsPerPage); // Tổng số trang = làm tròn lên
   let currentPage = 1;
 
   // --- 1. Hàm Hiển thị Sản phẩm cho Trang Hiện tại (Không thay đổi) ---
   function displayProducts(page) {
-    currentPage = page;
-    const start = (page - 1) * productsPerPage;
-    const end = page * productsPerPage;
+    currentPage = page; // Cập nhật lại trang hiện tại
+    const start = (page - 1) * productsPerPage; // Tính vị trí bắt đầu của sản phẩm trong trang
+    const end = page * productsPerPage; // Vị trí kết thúc
 
+    // Duyệt tất cả sản phẩm và ẩn/hiện theo từng trang
     allProducts.forEach((product, index) => {
       product.style.display = index >= start && index < end ? "block" : "none";
     });
@@ -91,28 +93,31 @@ document.addEventListener("DOMContentLoaded", () => {
   function updatePaginationButtons() {
     paginationNav.innerHTML = ""; // Xóa các nút cũ
 
-    // Nút Previous (Sử dụng '<')
+    // Nút Previous
     const prevButton = createPaginationButton("<", currentPage > 1);
     prevButton.addEventListener("click", () => {
+      // Chỉ cho phép chuyển trang nếu chưa ở trang 1
       if (currentPage > 1) {
         displayProducts(currentPage - 1);
       }
     });
-    paginationNav.appendChild(prevButton);
+    paginationNav.appendChild(prevButton); // Thêm nút PREV vào thanh phân trang
 
     // Các nút số trang
     for (let i = 1; i <= totalPages; i++) {
-      const button = createPaginationButton(i, true);
+      const button = createPaginationButton(i, true); // Tạo nút có chữ là số trang. true = luôn enable
       if (i === currentPage) {
         button.classList.add("active"); // Đánh dấu trang hiện tại
       }
-      button.addEventListener("click", () => displayProducts(i));
-      paginationNav.appendChild(button);
+      button.addEventListener("click", () => displayProducts(i)); // Khi bấm vào một số trang bất kỳ
+      paginationNav.appendChild(button); // Thêm nút vào thanh phân trang
     }
 
-    // Nút Next (Sử dụng '>')
+    // Nút Next
+    // createPaginationButton(text, isEnabled), isEnabled = true khi currentPage < totalPages
     const nextButton = createPaginationButton(">", currentPage < totalPages);
     nextButton.addEventListener("click", () => {
+      // Chỉ cho bấm khi chưa ở trang cuối cùng
       if (currentPage < totalPages) {
         displayProducts(currentPage + 1);
       }
@@ -122,16 +127,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- 3. Hàm Tạo nút HTML ---
   function createPaginationButton(text, isClickable) {
-    const button = document.createElement("a");
+    const button = document.createElement("a"); // Tạo thẻ <a> làm nút phân trang
     button.href = "#";
     button.textContent = text;
-    button.classList.add("page-link");
+    button.classList.add("page-link"); // Thêm class chung cho tất cả các nút phân trang
 
     if (!isClickable) {
       button.classList.add("disabled");
       button.removeAttribute("href");
     }
-    return button;
+    return button; // Trả về đối tượng nút đã cấu hình xong
   }
 
   // --- 4. Cập nhật chỉ số trang ---
@@ -144,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- 5. Khởi tạo Phân trang ---
+  // Nếu tổng số sản phẩm > số sản phẩm mỗi trang thì cần phân trang
   if (totalProducts > productsPerPage) {
     updatePaginationButtons();
     displayProducts(1); // Hiển thị trang đầu tiên khi tải trang
@@ -161,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   productCards.forEach((card) => {
     card.addEventListener("click", () => {
-      const id = card.getAttribute("data-id");
+      const id = card.getAttribute("data-id"); // Lấy ID sản phẩm từ attribute data-id
       if (id) {
         // Chuyển sang trang chi tiết sản phẩm
         window.location.href = `product-detail-page.html?id=${id}`;

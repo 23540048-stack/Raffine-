@@ -1,25 +1,29 @@
 /* ==================== GLOBALS ==================== */
 let productId;
 // ==================== CART FUNCTIONS ====================
+
 function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
+  return JSON.parse(localStorage.getItem("cart")) || []; // Lấy giỏ hàng từ localStorage
 }
 
+// Lưu giỏ hàng vào localStorage
 function saveCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
+  localStorage.setItem("cart", JSON.stringify(cart)); // Chuyển object/array thành chuỗi JSON và lưu vào localStorage
+  updateCartCount(); // Cập nhật số lượng sản phẩm hiển thị
 }
 
+// Thêm sản phẩm vào giỏ hàng
 function addToCart(id, size, qty = 1) {
   const product = products[id];
   if (!product) return;
 
   let cart = getCart();
-  const existing = cart.find((item) => item.id === id && item.size === size);
+  const existing = cart.find((item) => item.id === id && item.size === size); // Kiểm tra xem sản phẩm cùng id và size đã có trong giỏ hàng chưa
 
   if (existing) {
-    existing.quantity += qty;
+    existing.quantity += qty; // Nếu đã có thì tăng số lượng
   } else {
+    // Nếu chưa có thì tạo mới
     cart.push({
       id,
       name: product.name,
@@ -34,11 +38,12 @@ function addToCart(id, size, qty = 1) {
   alert(`${product.name} (size ${size}) has been added to your cart!`);
 }
 
+// Cập nhật số lượng sản phẩm hiển thị trên icon giỏ hàng
 function updateCartCount() {
   const cart = getCart();
-  const total = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartBadge = document.querySelector(".cart-count");
-  if (cartBadge) cartBadge.textContent = total;
+  const total = cart.reduce((sum, item) => sum + item.quantity, 0); // Tính tổng số lượng sản phẩm trong giỏ, reduce() lặp qua từng item và cộng dồn quantity
+  const cartBadge = document.querySelector(".cart-count"); // Lấy phần tử hiển thị số lượng giỏ hàng trên giao diện
+  if (cartBadge) cartBadge.textContent = total; // Nếu phần tử tồn tại, cập nhật số lượng
 }
 document.addEventListener("DOMContentLoaded", updateCartCount);
 /* ==================== LOAD PRODUCT ==================== */
@@ -53,17 +58,17 @@ function loadProduct(id) {
     return;
   }
 
-  // ---------- Update product info ----------
+  // Update thông tin sản phẩm
   document.querySelector(".product-info h2").textContent = product.name;
   document.querySelector(".product-price").textContent = "$" + product.price;
   document.querySelector(".main-image img").src = product.images[0];
   document.querySelector(".main-image img").alt = product.name;
 
-  // ---------- Update title ----------
+  // Update tiêu đề
   let titleContent = product.name;
   document.title = `${titleContent} | RAFFINE`;
 
-  // ---------- Update tabs ----------
+  // Update tabs
   document.getElementById("description").querySelector("p").textContent =
     product.description || "";
   document.getElementById("sizefit").querySelector("p").textContent =
@@ -73,33 +78,36 @@ function loadProduct(id) {
   document.getElementById("delivery").querySelector("p").textContent =
     product.delivery || "";
 
-  // ---------- Thumbnails ----------
+  // Thumbnails
   const thumbContainer = document.querySelector(".thumbnail-list");
   thumbContainer.innerHTML = ""; // xóa ảnh cũ
   product.images.forEach((src, i) => {
     const img = document.createElement("img");
     img.src = src;
     img.alt = product.name;
-    if (i === 0) img.classList.add("active");
+    if (i === 0) img.classList.add("active"); // Nếu là ảnh đầu tiên → thêm class "active" để highlight
     thumbContainer.appendChild(img);
   });
 
-  // ---------- Sizes ----------
+  // Sizes
   const sizeContainer = document.querySelector(".size-buttons");
   sizeContainer.innerHTML = "";
   (product.sizes || ["S", "M", "L", "XL"]).forEach((s) => {
-    const btn = document.createElement("button");
-    btn.textContent = s;
+    // Lặp qua danh sách size của sản phẩm, Nếu product.sizes không tồn tại → dùng mặc định ["S", "M", "L", "XL"]
+    const btn = document.createElement("button"); // Tạo một nút button mới cho mỗi size
+    btn.textContent = s; // Gán text cho nút là size
     sizeContainer.appendChild(btn);
   });
 
-  // ---------- Related products ----------
+  // Related products
   const relatedList = document.querySelector(".related-list");
   relatedList.innerHTML = "";
+  // Lặp qua danh sách ID sản phẩm liên quan của sản phẩm hiện tại
+  // Nếu product.related không tồn tại → dùng mảng rỗng []
   (product.related || []).forEach((relId) => {
     const rel = products[relId];
     if (rel) {
-      const card = document.createElement("div");
+      const card = document.createElement("div"); // Tạo div cho mỗi sản phẩm liên quan
       card.className = "related-card";
       card.dataset.id = relId;
       card.innerHTML = `
@@ -116,28 +124,29 @@ function loadProduct(id) {
 
 // Thumbnail click
 document.querySelector(".thumbnail-list").addEventListener("click", (e) => {
+  // Chỉ xử lý khi click vào thẻ <img>
   if (e.target.tagName === "IMG") {
-    const mainImage = document.querySelector(".main-image img");
+    const mainImage = document.querySelector(".main-image img"); // Lấy phần tử main image và đổi src theo thumbnail được click
     mainImage.src = e.target.src;
 
     document
       .querySelectorAll(".thumbnail-list img")
-      .forEach((img) => img.classList.remove("active"));
-    e.target.classList.add("active");
+      .forEach((img) => img.classList.remove("active")); // Loại bỏ class "active" khỏi tất cả thumbnail
+    e.target.classList.add("active"); // Thêm class "active" cho thumbnail vừa click để highlight
   }
 });
 
 // Tabs click
 document.querySelector(".tab-buttons").addEventListener("click", (e) => {
-  const btn = e.target.closest(".tab-btn");
-  if (!btn) return;
+  const btn = e.target.closest(".tab-btn"); // Tìm nút .tab-btn gần nhất từ vị trí click
+  if (!btn) return; // Nếu click không phải vào button tab thì dừng
 
   document
     .querySelectorAll(".tab-btn")
     .forEach((b) => b.classList.remove("active"));
   btn.classList.add("active");
 
-  const tabId = btn.dataset.tab;
+  const tabId = btn.dataset.tab; // Lấy id tab cần hiển thị từ data-tab của nút
   document
     .querySelectorAll(".tab-content")
     .forEach((c) => c.classList.remove("active"));
@@ -217,17 +226,18 @@ document.querySelector(".related-list").addEventListener("click", (e) => {
   }
 });
 
-/* ==================== INITIALIZE ==================== */
+/* ==================== INIT ==================== */
 window.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  productId = params.get("id") || "lazy-top";
+  const params = new URLSearchParams(window.location.search); // Lấy tham số query string từ URL
+  productId = params.get("id") || "lazy-top"; // Lấy giá trị 'id' từ URL, nếu không có thì dùng mặc định "lazy-top"
   loadProduct(productId);
   updateCartCount();
 });
 
 /* ==================== HANDLE BACK/FORWARD ==================== */
 window.addEventListener("popstate", () => {
+  //Lắng nghe sự kiện 'popstate' trên window
   const id =
-    new URLSearchParams(window.location.search).get("id") || "lazy-top";
+    new URLSearchParams(window.location.search).get("id") || "lazy-top"; // Lấy giá trị 'id' từ URL hiện tại, nếu không có thì dùng mặc định "lazy-top"
   loadProduct(id);
 });

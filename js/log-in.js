@@ -1,11 +1,13 @@
 document.getElementById("login-form").addEventListener("submit", function (e) {
   e.preventDefault(); // chặn form reload
 
+  // Lấy giá trị từ input username và password, đồng thời loại bỏ khoảng trắng đầu/cuối
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  // Giả lập kiểm tra
+  // Giả lập kiểm tra: đảm bảo người dùng đã nhập đầy đủ thông tin
   if (username === "" || password === "") {
+    // Nếu username hoặc password trống → hiển thị cảnh báo
     alert("Please fill in both username and password.");
     return;
   }
