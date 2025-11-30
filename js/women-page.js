@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Click vào sản phẩm sẽ chuyển sang trang chi tiết sản phẩm
 
 document.addEventListener("DOMContentLoaded", function () {
-  const productCards = document.querySelectorAll(".product-card");
+  const productCards = document.querySelectorAll(".product-card.is-product");
 
   productCards.forEach((card) => {
     card.addEventListener("click", () => {

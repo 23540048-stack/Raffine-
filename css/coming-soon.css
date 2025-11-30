@@ -1,0 +1,53 @@
+body {
+  background-color: #f8f8f8;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 70%;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.icon-container {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #545454;
+}
+
+.btn-home {
+  display: inline-block;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
+}
+.btn-home:hover {
+  background-color: #fff; /* nền trắng */
+  color: #000; /* chữ đen */
+  transform: translateY(-2px); /* hiệu ứng nổi nhẹ */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+/* Hiệu ứng hiện ra từ từ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
