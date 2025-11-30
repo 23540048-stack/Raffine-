@@ -242,11 +242,14 @@ document.querySelector(".related-list").addEventListener("click", (e) => {
   const relId = card.dataset.id;
   if (relId) {
     loadProduct(relId);
+    //Cập nhật URL trên thanh địa chỉ trình duyệt mà không load lại trang
     window.history.pushState(
       { id: relId },
       "",
-      `product-detail.html?id=${relId}`
+      `product-detail.html?id=${relId}` // URL mới hiển thị
     );
+    //Bấm vào thì trang cuộn lên đầu
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 });
 
