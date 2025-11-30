@@ -35,7 +35,6 @@ function addToCart(id, size, qty = 1) {
   }
 
   saveCart(cart);
-  alert(`${product.name} (size ${size}) has been added to your cart!`);
 }
 
 // Cập nhật số lượng sản phẩm hiển thị trên icon giỏ hàng
@@ -184,31 +183,56 @@ document.querySelector(".size-buttons").addEventListener("click", (e) => {
 });
 
 /* ==================== ADD TO CART ==================== */
+// --- KHAI BÁO BIẾN ---
+const toastNotification = document.getElementById("toastNotification");
+const toastMessage = document.getElementById("toastMessage");
+let toastTimeout;
+
+// --- HÀM HIỂN THỊ TOAST ---
+function showToast(message, duration = 3000) {
+  // 1. Gán nội dung
+  toastMessage.textContent = message;
+
+  // 2. Hiển thị
+  toastNotification.style.display = "block";
+
+  // 3. Reset bộ đếm cũ nếu người dùng bấm liên tục
+  if (toastTimeout) {
+    clearTimeout(toastTimeout);
+  }
+
+  // 4. Đếm ngược để ẩn đi
+  toastTimeout = setTimeout(() => {
+    toastNotification.style.display = "none";
+  }, duration);
+}
+
+// --- SỰ KIỆN CLICK THÊM VÀO GIỎ ---
 document.querySelector(".add-to-cart").addEventListener("click", () => {
-  // 1. Lấy Kích thước (Size)
+  // 1. Lấy size
   const selectedSize = document.querySelector(
     ".size-buttons button.selected"
   )?.textContent;
 
+  // Kiểm tra Size
   if (!selectedSize) {
-    alert("Please select a size before adding to cart!");
+    showToast("⚠️ Please select a size first!");
     return;
   }
 
-  // 2. Lấy ID sản phẩm (Sử dụng biến toàn cục đã được loadProduct gán)
+  // Kiểm tra ID sản phẩm
   if (!productId) {
-    alert("Error: Product ID not found.");
+    showToast("❌ Error: Product ID not found.");
     return;
   }
 
-  // 3. Số lượng mặc định là 1
+  // Logic thêm giỏ hàng
   const defaultQuantity = 1;
-
-  // 4. Gọi hàm thêm vào giỏ hàng
   addToCart(productId, selectedSize, defaultQuantity);
-
-  // 5. Cập nhật số đếm trên biểu tượng giỏ hàng
   updateCartCount();
+
+  // Thông báo thành công
+  showToast("✅ Added to cart successfully!");
 });
 /* ==================== RELATED PRODUCT CLICK ==================== */
 document.querySelector(".related-list").addEventListener("click", (e) => {

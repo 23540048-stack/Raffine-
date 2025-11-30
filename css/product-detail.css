@@ -191,6 +191,47 @@
 .related-card p {
   margin-top: 8px;
 }
+/*Thông báo*/
+/* 1. Lớp bao ngoài (Wrapper) - Định vị trí */
+.toast-wrapper {
+  display: none; /* Mặc định ẩn */
+  position: fixed;
+  top: 20px; /* Cách mép trên 20px */
+  right: 20px; /* Cách mép phải 20px */
+  z-index: 9999; /* Nằm trên cùng mọi thứ */
+}
+
+/* 2. Hộp nội dung (Giao diện chính) */
+.toast-content {
+  background-color: #333; /* Màu nền tối (Dark mode) */
+  color: #fff; /* Chữ trắng */
+  padding: 16px 24px;
+  border-radius: 8px; /* Bo góc */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+  min-width: 260px;
+
+  /* Hiệu ứng trượt nhẹ khi hiện ra */
+  animation: slideInDown 0.4s ease-out;
+}
+
+/* 3. Style cho nội dung tin nhắn */
+.toast-message {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 4. Định nghĩa hiệu ứng trượt (Keyframes) */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Dịch lên trên 20px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Về vị trí cũ */
+  }
+}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 768px) {

@@ -115,16 +115,36 @@
     }
 
     // Nếu người dùng click avatar → đăng xuất
+    // 1. Lấy các phần tử cần thiết
+    const logoutModal = document.getElementById("logoutModal");
+    const btnConfirm = document.getElementById("btnConfirm");
+    const btnCancel = document.getElementById("btnCancel");
+
+    // 2. Xử lý sự kiện click vào loginLink
     loginLink?.addEventListener("click", (e) => {
-      // Gắn sự kiện click cho loginLink (avatar) nếu tồn tại
       if (localStorage.getItem("isLoggedIn") === "true") {
-        // Chỉ xử lý khi người dùng đang đăng nhập
-        e.preventDefault(); // tránh điều hướng nếu có
-        if (confirm("Sign out?")) {
-          localStorage.removeItem("isLoggedIn"); // Xóa trạng thái đăng nhập và username khỏi localStorage
-          localStorage.removeItem("username");
-          location.reload(); // Reload lại trang để cập nhật giao diện
-        }
+        e.preventDefault(); // Chặn điều hướng
+        // Hiện Modal
+        logoutModal.style.display = "flex";
+      }
+    });
+
+    // 3. Xử lý khi bấm nút "Đăng xuất" trong Modal
+    btnConfirm.addEventListener("click", () => {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("username");
+      location.reload(); // Reload trang
+    });
+
+    // 4. Xử lý khi bấm nút "Hủy" (Đóng Modal)
+    btnCancel.addEventListener("click", () => {
+      logoutModal.style.display = "none";
+    });
+
+    // (Tùy chọn) Bấm ra ngoài vùng trắng để đóng Modal
+    window.addEventListener("click", (e) => {
+      if (e.target === logoutModal) {
+        logoutModal.style.display = "none";
       }
     });
   });

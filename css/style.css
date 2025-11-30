@@ -128,3 +128,49 @@ select:focus {
   border-color: #8e6f53;
   box-shadow: 0 0 0 2px rgba(142, 111, 83, 0.3);
 }
+/* Lớp phủ mờ toàn màn hình */
+/*modal xuất hiện khi đăng xuất */
+.custom-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Màu đen mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Đảm bảo nằm trên cùng */
+}
+
+/* Hộp nội dung */
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  min-width: 300px;
+}
+
+/* Nút bấm */
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-cancel {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background-color: #000;
+  color: #fff;
+}
